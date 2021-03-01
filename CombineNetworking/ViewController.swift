@@ -64,7 +64,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Github Finder 🔍"
-        usernameTextfield.delegate = self
         setupStack()
         apiNetworkActivitySubscriber = GithubAPI.networkActivityPublisher
             .receive(on: RunLoop.main)
@@ -161,7 +160,7 @@ class ViewController: UIViewController {
     }
     
 }
-extension ViewController: UITextFieldDelegate{
+extension ViewController{
     @objc func textFieldEditingDidChange(_ sender: UITextField) {
         switch sender {
         case usernameTextfield:
